@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/pixlpark-test/static/css/main.51c9aa54.chunk.css",
+    "main.js": "/pixlpark-test/static/js/main.495976ba.chunk.js",
+    "main.js.map": "/pixlpark-test/static/js/main.495976ba.chunk.js.map",
+    "runtime-main.js": "/pixlpark-test/static/js/runtime-main.e50f2e77.js",
+    "runtime-main.js.map": "/pixlpark-test/static/js/runtime-main.e50f2e77.js.map",
+    "static/js/2.f551607b.chunk.js": "/pixlpark-test/static/js/2.f551607b.chunk.js",
+    "static/js/2.f551607b.chunk.js.map": "/pixlpark-test/static/js/2.f551607b.chunk.js.map",
+    "index.html": "/pixlpark-test/index.html",
+    "precache-manifest.b1327654a61f478a2566f9470e1e3863.js": "/pixlpark-test/precache-manifest.b1327654a61f478a2566f9470e1e3863.js",
+    "service-worker.js": "/pixlpark-test/service-worker.js",
+    "static/css/main.51c9aa54.chunk.css.map": "/pixlpark-test/static/css/main.51c9aa54.chunk.css.map",
+    "static/js/2.f551607b.chunk.js.LICENSE.txt": "/pixlpark-test/static/js/2.f551607b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e50f2e77.js",
+    "static/js/2.f551607b.chunk.js",
+    "static/css/main.51c9aa54.chunk.css",
+    "static/js/main.495976ba.chunk.js"
+  ]
+}
