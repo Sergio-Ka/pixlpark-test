@@ -8,6 +8,13 @@
   width: 100%;
 }
 
+.application__panel {
+  padding: 1rem;
+  margin: 1rem 0.5rem 0 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
 .application__content {
   display: flex;
 }
@@ -18,10 +25,4 @@
   margin: 1rem 0.5rem 0 1rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-.application__load-button {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: darkkhaki;
 }

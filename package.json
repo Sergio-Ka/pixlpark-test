@@ -1,18 +1,19 @@
 {
-  "name": "cbrf-test",
+  "name": "pixlpark-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sergio-ka.github.io/cbrf-test",
+  "homepage": "https://sergio-ka.github.io/pixlpark-test",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
     "bem-cn": "^3.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-modal": "^3.11.1",
-    "react-scripts": "3.3.0",
-    "uuid": "^3.4.0"
+    "react-scripts": "^3.4.1",
+    "sha1": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

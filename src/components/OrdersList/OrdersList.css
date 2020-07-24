@@ -1,6 +1,8 @@
 .order-list__header {
-  height: 1.5rem;
+  height: 3rem;
   border-bottom: 1px dashed rgba(150, 150, 150, 0.8);
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .order-list__content {

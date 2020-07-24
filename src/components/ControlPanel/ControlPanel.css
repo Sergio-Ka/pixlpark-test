@@ -1,0 +1,22 @@
+.control-panel__header {
+  height: 3rem;
+  border-bottom: 1px dashed rgba(150, 150, 150, 0.8);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.control-panel__content {
+  margin: 0.3rem 0 0 1.25rem;
+}
+.control-panel__order-number,
+.control-panel__filter,
+.control-panel__button-wrapper {
+  margin: 0.5rem 1rem 0 1rem;
+  display: inline-block;
+}
+
+.control-panel__load-button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: darkkhaki;
+}

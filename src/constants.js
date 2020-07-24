@@ -1,21 +1,3 @@
-const modalStyles = {
-  overlay: {
-    backgroundColor: 'rgba(0,0,0,0.7)'
-  },
-  content: {
-    position: 'relative',
-    padding: '1rem',
-    width: '35rem',
-    border: '1px solid #707070',
-    borderRadius: '5px',
-    backgroundColor: '#fff',
-    overflow: 'hidden',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
 const initialData = [
   {
     "Id": "2333760",
@@ -59,8 +41,6 @@ const initialData = [
     "UserId": 16,
     "UserCompanyAccountId": null,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595411520000)\/",
-    "DateModified": "\/Date(1595411520000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": null,
@@ -108,8 +88,6 @@ const initialData = [
     "UserId": 16,
     "UserCompanyAccountId": null,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595409960000)\/",
-    "DateModified": "\/Date(1595409960000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": null,
@@ -157,8 +135,6 @@ const initialData = [
     "UserId": 49104527,
     "UserCompanyAccountId": 18889,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595234880000)\/",
-    "DateModified": "\/Date(1595234880000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": "BankTransfer",
@@ -206,8 +182,6 @@ const initialData = [
     "UserId": 20079827,
     "UserCompanyAccountId": null,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595232180000)\/",
-    "DateModified": "\/Date(1595232180000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": null,
@@ -239,8 +213,6 @@ const initialData = [
     "UserId": 80376421,
     "UserCompanyAccountId": null,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595228580000)\/",
-    "DateModified": "\/Date(1595228580000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": null,
@@ -272,8 +244,6 @@ const initialData = [
     "UserId": 80375932,
     "UserCompanyAccountId": null,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595228520000)\/",
-    "DateModified": "\/Date(1595228520000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": null,
@@ -305,8 +275,6 @@ const initialData = [
     "UserId": 80376147,
     "UserCompanyAccountId": null,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595228400000)\/",
-    "DateModified": "\/Date(1595228400000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": null,
@@ -338,8 +306,6 @@ const initialData = [
     "UserId": 80375932,
     "UserCompanyAccountId": null,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595228220000)\/",
-    "DateModified": "\/Date(1595228220000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": null,
@@ -371,8 +337,6 @@ const initialData = [
     "UserId": 80375882,
     "UserCompanyAccountId": null,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595228160000)\/",
-    "DateModified": "\/Date(1595228160000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": null,
@@ -404,8 +368,6 @@ const initialData = [
     "UserId": 80375743,
     "UserCompanyAccountId": null,
     "DiscountTitle": null,
-    "DateCreated": "\/Date(1595228100000)\/",
-    "DateModified": "\/Date(1595228100000)\/",
     "DatePaid": null,
     "LastDownloadedPaymentDocument": null,
     "PaymentSystemUniqueId": null,
@@ -414,4 +376,4 @@ const initialData = [
 ];
 
 
-export { modalStyles, initialData };
+export { initialData };
