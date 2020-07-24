@@ -1,0 +1,36 @@
+.order {
+  text-align: left;
+  cursor: pointer;
+}
+
+.order__header {
+  border-bottom: 1px dashed rgba(192, 192, 192, 0.3);
+}
+
+.order__id, .order__title, .order__status, .order__payment-status {
+  display: inline-block;
+  margin: 0 1rem 0 0;
+}
+
+.order__status, .order__payment-status {
+  border: 1px dashed red;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+}
+
+.order__content {
+  display: none;
+  margin: 0.3rem 0 0 1.25rem;
+}
+
+.order__content_visible {
+  display: block;
+}
+
+.order__collapse-button {
+  width: 5rem;
+  height: 1.25rem;
+  background-color: darkkhaki;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
