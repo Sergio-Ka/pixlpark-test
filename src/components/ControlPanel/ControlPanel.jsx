@@ -23,7 +23,7 @@ class ControlPanel extends React.Component {
         </div>
         <div className={b('filter')}>{'Статус: '}
           <select value={status} onChange={onSelectChangeHandler}>
-            <option selected value="NotProcessed">Не обработан</option>
+            <option value="NotProcessed">Не обработан</option>
             <option value="Cancelled">Отменен</option>
             <option value="Printing">Напечатан</option>
           </select>

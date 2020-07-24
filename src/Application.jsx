@@ -5,7 +5,6 @@ import { block } from 'bem-cn';
 
 import ControlPanel from './components/ControlPanel/ControlPanel';
 import OrdersList from './components/OrdersList/OrdersList';
-import { initialData } from './constants.js';
 import './Application.css';
 
 const b = block('application');
@@ -14,7 +13,7 @@ const publicKey = '38cd79b5f2b2486d86f562e3c43034f8';
 
 class Application extends React.Component {
   state = {
-    ordersList: initialData,
+    ordersList: [],
     numberOfOrders: 10,
     status: 'NotProcessed',
   };

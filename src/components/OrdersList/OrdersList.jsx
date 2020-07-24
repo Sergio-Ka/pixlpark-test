@@ -17,7 +17,7 @@ class OrdersList extends React.Component {
         <div className={b('header')}>
           {'Заказы'}
         </div>
-        {data.map((child, index) => {
+        {data.length !== 0 && data.map((child, index) => {
           return (
             <div className={b('content')} key={index}>
               <Order item={child} />
