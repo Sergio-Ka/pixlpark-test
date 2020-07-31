@@ -25,7 +25,7 @@ class ControlPanel extends React.Component {
           <select value={status} onChange={onSelectChangeHandler}>
             <option value="NotProcessed">Не обработан</option>
             <option value="Cancelled">Отменен</option>
-            <option value="Printing">Напечатан</option>
+            <option value="Printing">В печати</option>
           </select>
         </div>
         <div className={b('order-number')}>{'Количество ордеров к загрузке: '}

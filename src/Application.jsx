@@ -20,7 +20,7 @@ class Application extends React.Component {
 
   componentDidMount() {
     const { numberOfOrders, status } = this.state;
-    this.getSomeAmountOfOrdersByStatus(numberOfOrders, status);
+    this.getSomeAmountOfOrders(numberOfOrders, status);
   }
 
   render() {
@@ -48,7 +48,7 @@ class Application extends React.Component {
 
   handleLoadButtonClick = () => {
     const { numberOfOrders, status } = this.state;
-    this.getSomeAmountOfOrdersByStatus(numberOfOrders, status);
+    this.getSomeAmountOfOrders(numberOfOrders, status);
   }
 
   handleInputChange = (event) => {
@@ -59,39 +59,38 @@ class Application extends React.Component {
     this.setState({ status: event.target.value });
   }
 
-  getSomeAmountOfOrdersByStatus(numberOfOrders, status) {
-    this.getRequestToken(numberOfOrders, status);
+  async getSomeAmountOfOrders(numberOfOrders, status) {
+    let orders = {};
+    try {
+      const requestTokenServerResponse = await this.getRequestTokenServerResponse();
+      const requestToken = requestTokenServerResponse.data.RequestToken;
+      const accessTokenServerResponse = await this.getAccessTokenServerResponse(requestToken, privateKey, publicKey);
+      const accessToken = accessTokenServerResponse.data.AccessToken;
+      const ordersDataObject = await this.getOrdersDataObject(accessToken, numberOfOrders, status);
+      orders = ordersDataObject.data.Result;
+    } catch(error) {
+      console.log(error);
+    }
+    this.setState({ ordersList: orders });
   }
 
-  getRequestToken(numberOfOrders, status) {
-    axios.get('http://api.pixlpark.com/oauth/requesttoken')
-      .then(response => {
-        this.getAccessToken(response.data.RequestToken, privateKey, publicKey, numberOfOrders, status)
-      })
-      .catch(error => {
-        console.log(error)
-      });
+  getRequestTokenServerResponse() {
+    return axios.get('http://api.pixlpark.com/oauth/requesttoken');
   }
 
-  getAccessToken(requestToken, privateKey, publicKey, numberOfOrders, status) {
-    axios.get('http://api.pixlpark.com/oauth/accesstoken', {
+  getAccessTokenServerResponse(requestToken, privateKey, publicKey) {
+    return axios.get('http://api.pixlpark.com/oauth/accesstoken', {
       params: {
         oauth_token: requestToken,
         grant_type: 'api',
         username: publicKey,
-        password: sha1(`${requestToken}${privateKey}`),
+        password: this.getPassword(requestToken, privateKey),
       }
-    })
-      .then(response => {
-        this.getOrders(response.data.AccessToken, numberOfOrders, status);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    });
   }
 
-  getOrders(accessToken, numberOfOrders, status) {
-    axios.get('http://api.pixlpark.com/orders', {
+  getOrdersDataObject(accessToken, numberOfOrders, status) {
+    return axios.get('http://api.pixlpark.com/orders', {
       params: {
         oauth_token: accessToken,
         take: numberOfOrders,
@@ -100,13 +99,11 @@ class Application extends React.Component {
         // userId: 100,
         // shippingId: 200,
       }
-    })
-      .then(response => {
-        this.setState({ ordersList: response.data.Result });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    });
+  }
+
+  getPassword(requestToken, privateKey) {
+    return sha1(`${requestToken}${privateKey}`);
   }
 }
 
