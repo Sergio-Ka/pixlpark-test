@@ -1,15 +1,15 @@
 import React from 'react';
-import axios from 'axios';
-import sha1 from 'sha1';
 import { block } from 'bem-cn';
 
 import ControlPanel from './components/ControlPanel/ControlPanel';
 import OrdersList from './components/OrdersList/OrdersList';
+import Api from './api/api';
 import './Application.css';
 
 const b = block('application');
 const privateKey = '8e49ff607b1f46e1a5e8f6ad5d312a80';
 const publicKey = '38cd79b5f2b2486d86f562e3c43034f8';
+const api = new Api(privateKey, publicKey);
 
 class Application extends React.Component {
   state = {
@@ -20,7 +20,8 @@ class Application extends React.Component {
 
   componentDidMount() {
     const { numberOfOrders, status } = this.state;
-    this.getSomeAmountOfOrders(numberOfOrders, status);
+    api.getSomeAmountOfOrders(numberOfOrders, status)
+      .then(orders => this.setState({ ordersList: orders }));
   }
 
   render() {
@@ -48,7 +49,8 @@ class Application extends React.Component {
 
   handleLoadButtonClick = () => {
     const { numberOfOrders, status } = this.state;
-    this.getSomeAmountOfOrders(numberOfOrders, status);
+    api.getSomeAmountOfOrders(numberOfOrders, status)
+      .then(orders => this.setState({ ordersList: orders }));
   }
 
   handleInputChange = (event) => {
@@ -57,53 +59,6 @@ class Application extends React.Component {
 
   handleSelectChange = (event) => {
     this.setState({ status: event.target.value });
-  }
-
-  async getSomeAmountOfOrders(numberOfOrders, status) {
-    let orders = {};
-    try {
-      const requestTokenServerResponse = await this.getRequestTokenServerResponse();
-      const requestToken = requestTokenServerResponse.data.RequestToken;
-      const accessTokenServerResponse = await this.getAccessTokenServerResponse(requestToken, privateKey, publicKey);
-      const accessToken = accessTokenServerResponse.data.AccessToken;
-      const ordersDataObject = await this.getOrdersDataObject(accessToken, numberOfOrders, status);
-      orders = ordersDataObject.data.Result;
-    } catch(error) {
-      console.log(error);
-    }
-    this.setState({ ordersList: orders });
-  }
-
-  getRequestTokenServerResponse() {
-    return axios.get('http://api.pixlpark.com/oauth/requesttoken');
-  }
-
-  getAccessTokenServerResponse(requestToken, privateKey, publicKey) {
-    return axios.get('http://api.pixlpark.com/oauth/accesstoken', {
-      params: {
-        oauth_token: requestToken,
-        grant_type: 'api',
-        username: publicKey,
-        password: this.getPassword(requestToken, privateKey),
-      }
-    });
-  }
-
-  getOrdersDataObject(accessToken, numberOfOrders, status) {
-    return axios.get('http://api.pixlpark.com/orders', {
-      params: {
-        oauth_token: accessToken,
-        take: numberOfOrders,
-        skip: 0,
-        status,
-        // userId: 100,
-        // shippingId: 200,
-      }
-    });
-  }
-
-  getPassword(requestToken, privateKey) {
-    return sha1(`${requestToken}${privateKey}`);
   }
 }
 
